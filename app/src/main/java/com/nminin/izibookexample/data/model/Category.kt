@@ -1,16 +1,22 @@
 package com.nminin.izibookexample.data.model
 
+import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import kotlin.random.Random
-import kotlin.random.nextInt
+import com.nminin.izibookexample.BuildConfig
 
 data class Category(
     @SerializedName("id")
-    private val id: Int,
+    @Expose
+    val id: Int,
     @SerializedName("icon")
-    private val iconId: Int,
+    @Expose
+    val iconId: Int,
     @SerializedName("title")
-    private val title: String,
+    @Expose
+    val title: String,
     @SerializedName("items")
-    private val items: List<Subcategory>
-)
+    @Expose
+    val items: List<Subcategory>
+) {
+    fun getIconUrl(h: Int, w: Int) = "${BuildConfig.API_AUTH_URL}?&image=$id&h=$h&w=$w"
+}

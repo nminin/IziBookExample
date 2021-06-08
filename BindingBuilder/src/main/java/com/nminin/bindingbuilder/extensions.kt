@@ -15,7 +15,7 @@ import com.nminin.bindingbuilder.recycler.RecyclerAdapterBindingBuilder
 import com.nminin.bindingbuilder.recycler.ViewHolder
 import com.nminin.bindingbuilder.recycler.ViewHolderFactory
 
-fun <V : View> V.bind() = this
+fun <V : View> V.bind() = BindingBuilder(this)
 
 fun <V : RecyclerView, T> V.bind(
     viewHolder: (parent: ViewGroup) -> ViewHolder<T>
@@ -48,15 +48,6 @@ fun BindingBuilder<SwipeRefreshLayout>.onRefresh(action: () -> Unit) {
         action.invoke()
     }
 }
-
-fun <T : View> T.bind(@IdRes resId: Int) = BindingBuilder(this.findViewById<T>(resId))
-
-fun <T : View, V : RecyclerView, ITEM, VH : ViewHolder<ITEM>, VHF : ViewHolderFactory<ITEM, VH>>
-        T.bindRecyclerView(@IdRes resId: Int, viewHolderFactory: VHF) =
-    RecyclerAdapterBindingBuilder(
-        this.findViewById<V>(resId), viewHolderFactory
-    )
-
 fun BindingBuilder<EditText>.onTextChanged(textListener: (String) -> Unit) = this.apply {
     this.view.addTextChangedListener(object : TextWatcher {
         override fun afterTextChanged(s: Editable?) {

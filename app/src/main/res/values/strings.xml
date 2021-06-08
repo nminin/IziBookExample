@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">IziBookExample</string>
+    <string name="certificate_loading">Certificate loading</string>
 </resources>

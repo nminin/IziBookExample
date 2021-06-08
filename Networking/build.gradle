@@ -8,9 +8,9 @@ dependencies {
     implementation 'io.reactivex.rxjava3:rxjava:3.0.6'
     //retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit"
-    api "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
     implementation 'com.github.nminin:RetrofitExt:0.1.2'
-    api 'com.squareup.okhttp3:logging-interceptor:4.0.0'
+    api 'com.squareup.okhttp3:logging-interceptor:4.2.1'
 }
 
 sourceCompatibility = "1.7"

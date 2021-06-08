@@ -8,7 +8,6 @@ import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import sun.rmi.runtime.Log
 
 fun <T, E> Call<T>.responseCustomError(
     onSuccess: (Int, T) -> Unit,
